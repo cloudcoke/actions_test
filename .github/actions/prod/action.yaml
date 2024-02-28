@@ -10,6 +10,7 @@ runs:
     steps:
         - name: List Files
           run: ls
+          shell: bash
 
         - name: Dynamic Secrets
           run: echo ${{ secrets[format('{0}_A', inputs.environment)] }} | sed  's/./&/g'
