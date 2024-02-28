@@ -13,5 +13,5 @@ runs:
           shell: bash
 
         - name: Dynamic Secrets
-          run: echo ${{ inputs.environment }}'
+          run: echo ${{ inputs.environment }}
           shell: bash
