@@ -6,6 +6,12 @@ jobs:
     Deployment:
         runs-on: ubuntu-latest
         steps:
+            - name: Set Timezone
+              run: sudo timedatectl set-timezone Asia/Seoul
+
+            - name: Checkout Code
+              uses: actions/checkout@v4
+
             - name: Other Branch
               if: github.ref != 'refs/heads/main'
               run: |
@@ -13,6 +19,6 @@ jobs:
                   echo "other"
             - name: Main Branch
               if: github.ref == 'refs/heads/main'
-              run: |
-                  echo $GITHUB_REF
-                  echo "main"
+              uses: ./.github/actions/prod
+              with:
+                  environment: "PROD"
