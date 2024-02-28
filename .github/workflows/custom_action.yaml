@@ -1,0 +1,11 @@
+name: Custom Action Test
+
+on: push
+
+jobs:
+    Custom_Action:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: cloudcoke/docker-deploy@main
+              with:
+                  username: "CloudCoke"

@@ -1,6 +1,9 @@
 name: Dynamic Environment Test
 
-on: push
+# on: push
+on:
+    push:
+        branches: dev
 
 jobs:
     Deployment:
