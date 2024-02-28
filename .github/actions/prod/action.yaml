@@ -3,6 +3,8 @@ name: Prod Deploy
 inputs:
     environment:
         required: true
+    secrets:
+        required: false
 
 runs:
     using: composite
@@ -13,5 +15,7 @@ runs:
           shell: bash
 
         - name: Dynamic Secrets
-          run: echo ${{ inputs.environment }}
+          run: |
+              echo ${{ inputs.environment }}
+              echo ${{ inputs.secrets }}
           shell: bash
