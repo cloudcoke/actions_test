@@ -13,7 +13,5 @@ runs:
           shell: bash
 
         - name: Dynamic Secrets
-          env:
-              MY_SECRET: ${{ secrets[format('{0}_A', inputs.environment)] }}
-          run: echo $MY_SECRET'
+          run: echo ${{ inputs.environment }}'
           shell: bash
