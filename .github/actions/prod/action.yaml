@@ -13,5 +13,7 @@ runs:
           shell: bash
 
         - name: Dynamic Secrets
-          run: echo ${{ secrets[format('{0}_A', inputs.environment)] }} | sed  's/./&/g'
+          env:
+              MY_SECRET: ${{ secrets[format('{0}_A', inputs.environment)] }}
+          run: echo $MY_SECRET'
           shell: bash
