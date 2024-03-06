@@ -15,3 +15,7 @@ jobs:
                   aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
                   aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
                   ecr-repository: ${{ secrets.ECR_REPOSITORY }}
+                  codedeploy-app-name: ${{ secrets.CODEDEPLOY_APP_NAME }}
+                  codedeploy-group-name: ${{ secrets.CODEDEPLOY_DEPLOY_GROUP_NAME }}
+                  codedeploy-bucket-name: ${{ secrets.CODEDEPLOY_BUCKET_NAME }}
+                  codedeploy-bucket-key: ${{ secrets.CODEDEPLOY_BUCKET_KEY }}
