@@ -17,6 +17,7 @@ jobs:
                   ecr-repository: ${{ secrets.ECR_REPOSITORY }}
                   docker-container-port: ${{ secrets.CONTAINER_PORT }}
                   docker-container-name: ${{ secrets.CONTAINER_NAME }}
+                  use-env-file: true
                   ssh-host: ${{ secrets.HOST }}
                   ssh-username: ${{ secrets.USERNAME }}
                   ssh-private-key: ${{ secrets.PRIVATE_KEY }}
