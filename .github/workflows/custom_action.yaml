@@ -10,7 +10,7 @@ jobs:
               uses: actions/checkout@v4
 
             - name: Docker Deployment
-              uses: cloudcoke/docker-deploy@v0.1
+              uses: cloudcoke/docker-deploy@main
               with:
                   aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
                   aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
