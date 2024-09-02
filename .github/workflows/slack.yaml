@@ -26,5 +26,5 @@ jobs:
               if: ${{always()}}
               uses: cloudcoke/slack_actions@v1
               with:
-                  staus: ${{env.ACTIONS_STATUS}}
+                  status: ${{env.ACTIONS_STATUS}}
                   slack-webhook-url: ${{secrets.SLACK_WEBHOOK_URL}}
