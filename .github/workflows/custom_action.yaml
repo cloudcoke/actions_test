@@ -1,6 +1,8 @@
 name: Custom Action Test
 
-on: push
+on:
+    push:
+        branches: dev
 
 jobs:
     Custom_Action:
