@@ -8,6 +8,9 @@ jobs:
     Slack:
         runs-on: ubuntu-latest
         steps:
+            - name: Test Success
+              run: echo "hello world"
+
             - name: Test Failure
               run: exit 1
 
