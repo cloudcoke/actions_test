@@ -10,6 +10,6 @@ jobs:
         steps:
             - name: workflow_run
               env:
-                  WORKFLOW_RUN: ${{github.evnet.workflow_run}}
+                  GITHUB_CONTEXT: ${{ toJson(github) }}
               run: |
-                  echo $WORKFLOW_RUN
+                  echo "$GITHUB_CONTEXT"
