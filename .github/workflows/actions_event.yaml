@@ -10,4 +10,4 @@ jobs:
         steps:
             - name: workflow_run
               run: |
-                  echo ${{github.evnet}}
+                  echo ${{github.evnets}}
