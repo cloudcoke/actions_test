@@ -1,4 +1,4 @@
-name: Actions Events
+name: Actions Payloads
 
 on:
     push:
@@ -8,7 +8,7 @@ jobs:
     evnets:
         runs-on: ubuntu-latest
         steps:
-            - name: workflow_run
+            - name: Payloads
               env:
                   GITHUB_CONTEXT: ${{ toJson(github) }}
               run: |
