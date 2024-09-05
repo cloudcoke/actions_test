@@ -5,7 +5,7 @@ on:
         branches: main
 
 jobs:
-    evnets:
+    payloads:
         runs-on: ubuntu-latest
         steps:
             - name: Payloads
