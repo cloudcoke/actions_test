@@ -9,5 +9,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: workflow_run
+              env:
+                  WORKFLOW_RUN: ${{github.evnet.workflow_run}}
               run: |
-                  echo ${{github.evnet.workflow_run.conclusion}}
+                  echo $WORKFLOW_RUN
