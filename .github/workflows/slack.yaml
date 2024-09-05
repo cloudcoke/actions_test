@@ -11,11 +11,11 @@ jobs:
             - name: Test Success
               run: echo "hello world"
 
-            - name: Test Failure
-              run: exit 1
+            # - name: Test Failure
+            #   run: exit 1
 
-            - name: Test Success
-              run: echo "hello world"
+            # - name: Test Success
+            #   run: echo "hello world"
 
             - name: If Actions Failure
               if: ${{failure()}}
