@@ -3,6 +3,7 @@ name: Slack Test
 on:
     push:
         branches: develop
+    workflow_dispatch:
 
 jobs:
     Slack:
