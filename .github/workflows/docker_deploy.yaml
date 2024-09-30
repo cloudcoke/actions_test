@@ -17,4 +17,4 @@ jobs:
           ssh-host: ${{ secrets.TEST_HOST }}
           ssh-username: ${{ secrets.TEST_USERNAME }}
           ssh-private-key: ${{ secrets.TEST_PRIVATE_KEY }}
-          other-options: "--memory=1g --memory-swap=1.5g"
+          # other-options: "--memory=1g --memory-swap=1.5g"
