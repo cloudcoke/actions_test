@@ -11,7 +11,7 @@ jobs:
       - name: Docker Deploy
         uses: cloudcoke/docker-deploy@v1.2
         with:
-          image: cloudcoke/sample_node:latest
+          image: cloudcoke/sample-node:latest
           container-port: 3000
           container-name: test
           ssh-host: ${{ secrets.TEST_HOST }}
