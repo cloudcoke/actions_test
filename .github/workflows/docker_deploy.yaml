@@ -2,19 +2,19 @@ name: Docker Deploy Test
 
 on:
   push:
-    branches: main
+    branches: develop
 
 jobs:
   docker-deploy-test:
     runs-on: ubuntu-22.04
     steps:
-      - name: Docker Deploy
-        uses: cloudcoke/docker-deploy@v1.2
-        with:
-          image: cloudcoke/sample-node:latest
-          container-port: 3000
-          container-name: test
-          ssh-host: ${{ secrets.TEST_HOST }}
-          ssh-username: ${{ secrets.TEST_USERNAME }}
-          ssh-private-key: ${{ secrets.TEST_PRIVATE_KEY }}
-          # other-options: "--memory=1g --memory-swap=1.5g"
+    - name: Docker Deploy
+      uses: cloudcoke/docker-deploy@v1.2
+      with:
+        image: cloudcoke/sample-node:latest
+        container-port: 3000
+        container-name: test
+        ssh-host: ${{ secrets.TEST_HOST }}
+        ssh-username: ${{ secrets.TEST_USERNAME }}
+        ssh-private-key: ${{ secrets.TEST_PRIVATE_KEY }}
+        # other-options: "--memory=1g --memory-swap=1.5g"
