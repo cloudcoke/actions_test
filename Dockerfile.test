@@ -1,0 +1,8 @@
+FROM node:18-alpine
+
+WORKDIR /app
+
+COPY  apps/hello ./apps/hello
+COPY  apps/hello/.env ./apps/hello/.env
+
+CMD [ "node", "apps/hello/hello.js" ]

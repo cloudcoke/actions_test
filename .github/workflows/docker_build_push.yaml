@@ -1,0 +1,33 @@
+name: Docker Build Push Test
+
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  docker-build-push-test:
+    runs-on: ubuntu-22.04
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+      with:
+        sparse-checkout: |
+          apps/hello
+          Dockerfile.test
+        sparse-checkout-cone-mode: false
+
+    - name: Make file
+      run: |
+        echo "hello=world" > .env
+        echo "foo=bar" > .env
+        mv .env apps/hello/.env
+
+    - name: Docker Build and ECR Push
+      uses: cloudcoke/ecr-docker-build-push@v2.1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        repository: ${{ secrets.ECR_REPOSITORY }}
+        build-file: Dockerfile.test
+        context: .
