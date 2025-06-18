@@ -30,9 +30,15 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
         with:
-          sparse-checkout: |
-            ${{ steps.paths.outputs.paths }}
+          sparse-checkout: ${{ steps.paths.outputs.paths }}
+
+      - name: Check sparse-checkout config
+        run: |
+          echo "=== Git sparse-checkout status ==="
+          git sparse-checkout list
+          echo "=== Git config ==="
+          git config --list | grep sparse
 
       - name: ls
         run: |
-          ls
+          ls 
