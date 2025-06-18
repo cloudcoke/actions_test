@@ -24,5 +24,7 @@ jobs:
 
       - name: ls
         run: |
+          echo "=== ls status ==="
           ls
+          echo "=== ls apps status ==="
           ls apps
