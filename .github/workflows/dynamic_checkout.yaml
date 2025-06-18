@@ -1,0 +1,27 @@
+name: Dynamic Checkout
+
+on:
+  workflow_dispatch:
+    inputs:
+      app:
+        type: choice
+        description: Select app
+        options:
+          - kiweb
+          - url
+
+jobs:
+  dynamic_checkout:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Set checkout paths
+        id: paths
+        run: |
+          echo "paths=apps/${{ inputs.app }}
+          package.json
+          package-lock.json
+          tsconfig.json" >> $GITHUB_OUTPUT
+
+      - name: Echo checkout paths
+        run: |
+          echo ${{ steps.paths.outputs.paths }}
