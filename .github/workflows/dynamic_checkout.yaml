@@ -26,4 +26,4 @@ jobs:
 
       - name: Echo checkout paths
         run: |
-          echo ${{ steps.paths.outputs.paths }}
+          echo "${{ steps.paths.outputs.paths }}"
