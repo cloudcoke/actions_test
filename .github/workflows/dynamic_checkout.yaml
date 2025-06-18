@@ -14,30 +14,13 @@ jobs:
   dynamic_checkout:
     runs-on: ubuntu-22.04
     steps:
-      - name: Set checkout paths
-        id: paths
-        run: |
-          echo 'paths<<EOF' >> $GITHUB_OUTPUT
-          echo "apps/${{ inputs.app }}" >> $GITHUB_OUTPUT
-          echo "package.json" >> $GITHUB_OUTPUT
-          echo "foo.txt" >> $GITHUB_OUTPUT
-          echo 'EOF' >> $GITHUB_OUTPUT
-
-      - name: Echo checkout paths
-        run: |
-          echo "${{ steps.paths.outputs.paths }}"
-
       - name: Checkout Code
         uses: actions/checkout@v4
         with:
-          sparse-checkout: ${{ steps.paths.outputs.paths }}
-
-      - name: Check sparse-checkout config
-        run: |
-          echo "=== Git sparse-checkout status ==="
-          git sparse-checkout list
-          echo "=== Git config ==="
-          git config --list | grep sparse
+          sparse-checkout: |
+            apps/${{ inputs.app }}
+            package.json
+            foo.txt
 
       - name: ls
         run: |
