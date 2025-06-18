@@ -7,8 +7,8 @@ on:
         type: choice
         description: Select app
         options:
-          - kiweb
-          - url
+          - hello
+          - world
 
 jobs:
   dynamic_checkout:
@@ -20,10 +20,18 @@ jobs:
           echo 'paths<<EOF' >> $GITHUB_OUTPUT
           echo "apps/${{ inputs.app }}" >> $GITHUB_OUTPUT
           echo "package.json" >> $GITHUB_OUTPUT
-          echo "package-lock.json" >> $GITHUB_OUTPUT
-          echo "tsconfig.json" >> $GITHUB_OUTPUT
+          echo "foo.txt" >> $GITHUB_OUTPUT
           echo 'EOF' >> $GITHUB_OUTPUT
 
       - name: Echo checkout paths
         run: |
           echo "${{ steps.paths.outputs.paths }}"
+
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: ${{ steps.paths.outputs.paths }}
+
+      - name: ls
+        run: |
+          ls
