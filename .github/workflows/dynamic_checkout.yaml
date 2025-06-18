@@ -18,10 +18,10 @@ jobs:
         id: paths
         run: |
           echo 'paths<<EOF' >> $GITHUB_OUTPUT
-          apps/${{ inputs.app }} >> $GITHUB_OUTPUT
-          package.json >> $GITHUB_OUTPUT
-          package-lock.json >> $GITHUB_OUTPUT
-          tsconfig.json >> $GITHUB_OUTPUT
+          echo "apps/${{ inputs.app }}" >> $GITHUB_OUTPUT
+          echo "package.json" >> $GITHUB_OUTPUT
+          echo "package-lock.json" >> $GITHUB_OUTPUT
+          echo "tsconfig.json" >> $GITHUB_OUTPUT
           echo 'EOF' >> $GITHUB_OUTPUT
 
       - name: Echo checkout paths
