@@ -24,4 +24,5 @@ jobs:
 
       - name: ls
         run: |
-          ls 
+          ls
+          ls apps
